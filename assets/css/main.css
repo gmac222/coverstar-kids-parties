@@ -305,18 +305,26 @@ img {
   align-items: center;
 }
 
-.social-icon-circle {
+.social-icon-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
   background-color: #FFFFFF;
   color: var(--color-secondary);
-  border: 1px solid var(--color-secondary);
+  border: 2px solid var(--color-secondary);
   border-radius: 50%;
-  font-size: 12px;
-  font-weight: 800;
+  transition: all 0.2s ease;
+  box-shadow: 1px 1px 0px var(--color-secondary);
+}
+
+.social-icon-link:hover {
+  background-color: var(--color-secondary);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  text-decoration: none;
+  box-shadow: 2px 3px 0px var(--color-secondary);
 }
 
 .top-bar-phone {
