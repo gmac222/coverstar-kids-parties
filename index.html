@@ -322,13 +322,24 @@
       <h2>A Birthday Experience They Will Never Forget! 🎉</h2>
       <p style="max-width: 800px; margin: 0 auto 24px;">Forget boring soft play centres or trampoline parks! Give your birthday child and their best friends a VIP red-carpet studio experience where they step up to real studio mics and record music like their favourite chart stars.</p>
 
-      <!-- Embedded Video -->
+      <!-- Embedded Video with Centered Play Button Overlay -->
       <div style="max-width: 850px; margin: 32px auto 0;">
-        <div style="border-radius: var(--border-radius-lg); box-shadow: 8px 8px 0px var(--color-secondary); border: 3px solid var(--color-secondary); overflow: hidden; background: #03113B;">
-          <video controls preload="metadata" playsinline poster="/assets/images/hero-bg.png" style="width: 100%; height: auto; display: block; border-radius: calc(var(--border-radius-lg) - 3px);">
+        <div id="video-wrapper" style="position: relative; border-radius: var(--border-radius-lg); box-shadow: 8px 8px 0px var(--color-secondary); border: 3px solid var(--color-secondary); overflow: hidden; background: #03113B; cursor: pointer;">
+          
+          <video id="custom-party-video" controls preload="metadata" playsinline poster="/assets/images/video-poster.jpg" style="width: 100%; height: auto; display: block; border-radius: calc(var(--border-radius-lg) - 3px);">
             <source src="/assets/videos/coverstar-kids-parties.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+
+          <!-- Centered Play Icon Overlay -->
+          <div id="video-play-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(3, 17, 59, 0.25); transition: opacity 0.3s ease; pointer-events: none; z-index: 10;">
+            <div style="width: 84px; height: 56px; background-color: #FF2D55; border-radius: 18px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,0.4); border: 3px solid #FFFFFF;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF" style="margin-left: 3px;">
+                <polygon points="5,3 19,12 5,21"/>
+              </svg>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

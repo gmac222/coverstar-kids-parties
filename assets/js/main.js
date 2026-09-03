@@ -8,7 +8,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initEnquiryForm();
   renderDynamicPackages();
+  initVideoOverlay();
 });
+
+/* Video Play Button Overlay Handler */
+function initVideoOverlay() {
+  const videoWrapper = document.getElementById('video-wrapper');
+  const video = document.getElementById('custom-party-video');
+  const overlay = document.getElementById('video-play-overlay');
+
+  if (video && overlay) {
+    // Click wrapper to toggle play/pause
+    if (videoWrapper) {
+      videoWrapper.addEventListener('click', (e) => {
+        if (e.target !== video) {
+          if (video.paused) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        }
+      });
+    }
+
+    video.addEventListener('play', () => {
+      overlay.style.opacity = '0';
+      overlay.style.pointerEvents = 'none';
+    });
+
+    video.addEventListener('pause', () => {
+      overlay.style.opacity = '1';
+      overlay.style.pointerEvents = 'auto';
+    });
+
+    video.addEventListener('ended', () => {
+      overlay.style.opacity = '1';
+      overlay.style.pointerEvents = 'auto';
+    });
+  }
+}
 
 /* Mobile Navigation Toggle */
 function initMobileNav() {
