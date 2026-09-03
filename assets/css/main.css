@@ -496,33 +496,50 @@ img {
 }
 
 .hero-fun-title {
-  font-family: var(--font-heading);
-  font-size: 34px;
-  font-weight: 800;
+  font-family: 'Outfit', 'Abel', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
   color: var(--color-secondary);
-  line-height: 1.15;
+  line-height: 1.12;
   margin-bottom: 16px;
   text-transform: uppercase;
   position: relative;
+  letter-spacing: -0.5px;
+  /* Crisp 360-degree white text halo overlay for 100% legibility against moving background ribbons */
+  text-shadow: 
+    -2px -2px 0 #FFFFFF,
+     2px -2px 0 #FFFFFF,
+    -2px  2px 0 #FFFFFF,
+     2px  2px 0 #FFFFFF,
+     0px  4px 16px rgba(255, 255, 255, 0.95),
+     0px  2px 6px rgba(3, 17, 59, 0.2);
 }
 
 @media (min-width: 600px) {
   .hero-fun-title {
-    font-size: 44px;
+    font-size: 46px;
   }
 }
 
 @media (min-width: 900px) {
   .hero-fun-title {
-    font-size: 54px;
+    font-size: 56px;
   }
 }
 
 .hero-fun-subtitle {
   font-size: 18px;
-  color: var(--color-text-muted);
+  font-weight: 600;
+  color: var(--color-secondary);
+  line-height: 1.65;
   margin-bottom: 24px;
-  max-width: 580px;
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 14px 18px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-secondary);
+  box-shadow: 4px 4px 0px var(--color-secondary);
+  backdrop-filter: blur(6px);
 }
 
 .hero-fun-media-frame {
