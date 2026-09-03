@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Emerald Green Gradient Background -->
+    <linearGradient id="tripBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C880"/>
+      <stop offset="100%" stop-color="#008A56"/>
+    </linearGradient>
+    
+    <!-- Gold Border Ring Gradient -->
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE600"/>
+      <stop offset="100%" stop-color="#DCC700"/>
+    </linearGradient>
+
+    <!-- Drop Shadow for Owl & Ring -->
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2" flood-color="#03113B" flood-opacity="0.3"/>
+    </filter>
+
+    <!-- Curved Text Paths -->
+    <path id="topTextArc" d="M 30,100 A 70,70 0 1,1 170,100" fill="none"/>
+    <path id="bottomTextArc" d="M 170,100 A 70,70 0 0,1 30,100" fill="none"/>
+  </defs>
+
+  <!-- Outer Navy Rim -->
+  <circle cx="100" cy="100" r="98" fill="#03113B"/>
+
+  <!-- Outer Gold Ring -->
+  <circle cx="100" cy="100" r="92" fill="url(#goldRing)"/>
+
+  <!-- Main Emerald Green Circle Base -->
+  <circle cx="100" cy="100" r="86" fill="url(#tripBg)"/>
+
+  <!-- Inner Gold Accent Ring -->
+  <circle cx="100" cy="100" r="84" fill="none" stroke="#FFE600" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Top Arc Text: TRIPADVISOR -->
+  <text font-family="'Abel', 'Inter', sans-serif" font-weight="900" font-size="14" fill="#FFFFFF" letter-spacing="3" text-anchor="middle" filter="url(#badgeShadow)">
+    <textPath href="#topTextArc" startOffset="50%">TRIPADVISOR</textPath>
+  </text>
+
+  <!-- Bottom Arc Text: TRAVELLERS' CHOICE -->
+  <text font-family="'Abel', 'Inter', sans-serif" font-weight="800" font-size="12" fill="#FFE600" letter-spacing="1.5" text-anchor="middle" filter="url(#badgeShadow)">
+    <textPath href="#bottomTextArc" startOffset="50%">★ TRAVELLERS' CHOICE ★</textPath>
+  </text>
+
+  <!-- Center Laurel Wreath & TripAdvisor Owl Emblem -->
+  <g transform="translate(100, 98)" filter="url(#badgeShadow)">
+    <!-- Outer White Circle Badge for Owl -->
+    <circle cx="0" cy="0" r="32" fill="#FFFFFF" stroke="#03113B" stroke-width="2"/>
+
+    <!-- Left Laurel Leaf Branch -->
+    <path d="M -24,4 C -28,-6 -24,-16 -18,-20 C -16,-14 -18,-6 -24,4" fill="#FFE600" stroke="#03113B" stroke-width="1"/>
+    <path d="M -26,10 C -32,2 -30,-8 -22,-12 C -20,-6 -20,2 -26,10" fill="#FFE600" stroke="#03113B" stroke-width="1"/>
+
+    <!-- Right Laurel Leaf Branch -->
+    <path d="M 24,4 C 28,-6 24,-16 18,-20 C 16,-14 18,-6 24,4" fill="#FFE600" stroke="#03113B" stroke-width="1"/>
+    <path d="M 26,10 C 32,2 30,-8 22,-12 C 20,-6 20,2 26,10" fill="#FFE600" stroke="#03113B" stroke-width="1"/>
+
+    <!-- TripAdvisor Owl Mask & Eyes -->
+    <!-- Owl Outer Head Outline -->
+    <path d="M -18,-4 C -18,-16 0,-18 0,-18 C 0,-18 18,-16 18,-4 C 18,12 -18,12 -18,-4 Z" fill="#00C880" stroke="#03113B" stroke-width="1.5"/>
+
+    <!-- Left Eye Outer White & Inner Black Pupil -->
+    <circle cx="-7" cy="-3" r="7" fill="#FFFFFF" stroke="#03113B" stroke-width="1.5"/>
+    <circle cx="-7" cy="-3" r="3" fill="#03113B"/>
+    <circle cx="-6" cy="-4" r="1" fill="#FFFFFF"/>
+
+    <!-- Right Eye Outer White & Inner Black Pupil -->
+    <circle cx="7" cy="-3" r="7" fill="#FFFFFF" stroke="#03113B" stroke-width="1.5"/>
+    <circle cx="7" cy="-3" r="3" fill="#03113B"/>
+    <circle cx="6" cy="-4" r="1" fill="#FFFFFF"/>
+
+    <!-- Beak -->
+    <polygon points="0,-1 3,4 -3,4" fill="#FFE600" stroke="#03113B" stroke-width="1"/>
+  </g>
+</svg>
