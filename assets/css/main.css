@@ -499,69 +499,39 @@ img {
   }
 }
 
-/* Hero Content Wrapper - Mobile Order: Badge -> Title -> Photo Frame -> Subtitle -> CTAs */
-.hero-fun-content-wrapper {
-  display: flex;
-  flex-direction: column;
+/* Hero Grid & Media Visibility Rules */
+.hero-fun-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
   align-items: center;
-  text-align: center;
   position: relative;
   z-index: 10;
   width: 100%;
 }
 
-.hero-order-1 { order: 1; }
-.hero-order-2 { order: 2; }
-.hero-order-3 { 
-  order: 3; 
-  width: 100%;
-  margin-top: 14px;
-  margin-bottom: 32px;
-}
-.hero-order-4 { order: 4; }
-.hero-order-5 { 
-  order: 5; 
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
+.hero-media-mobile-only {
+  display: block;
+  margin: 16px 0 24px;
 }
 
-.hero-fun-cta-wrap .btn {
-  width: 100%;
+.hero-media-desktop-only {
+  display: none;
 }
 
-@media (min-width: 600px) {
-  .hero-fun-cta-wrap {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .hero-fun-cta-wrap .btn {
-    width: auto;
-  }
-}
-
-/* Desktop Layout (>= 900px): 2 Column Grid */
 @media (min-width: 900px) {
-  .hero-fun-content-wrapper {
-    display: grid;
+  .hero-fun-grid {
     grid-template-columns: 1.15fr 0.85fr;
-    grid-template-areas:
-      "badge media"
-      "title media"
-      "subtitle media"
-      "cta media";
-    gap: 14px 36px;
-    align-items: center;
-    text-align: left;
+    gap: 36px;
   }
 
-  .hero-order-1 { grid-area: badge; justify-self: start; margin-bottom: 0; }
-  .hero-order-2 { grid-area: title; margin-bottom: 0; }
-  .hero-order-3 { grid-area: media; margin: 0; }
-  .hero-order-4 { grid-area: subtitle; margin-bottom: 0; }
-  .hero-order-5 { grid-area: cta; display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-start; }
+  .hero-media-mobile-only {
+    display: none;
+  }
+
+  .hero-media-desktop-only {
+    display: block;
+  }
 }
 
 .hero-fun-badge {
