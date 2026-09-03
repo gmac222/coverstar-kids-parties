@@ -288,20 +288,20 @@ img {
 .top-endorsement-bar {
   background-color: var(--color-primary);
   color: var(--color-secondary);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
-  padding: 4px 16px;
+  padding: 4px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   border-bottom: 2px solid var(--color-secondary);
 }
 
 .top-bar-socials {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   align-items: center;
 }
 
@@ -309,8 +309,8 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 24px;
+  height: 24px;
   background-color: #FFFFFF;
   color: var(--color-secondary);
   border: 1.5px solid var(--color-secondary);
@@ -329,8 +329,24 @@ img {
 
 .top-bar-phone {
   color: var(--color-secondary);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
+}
+
+@media (min-width: 600px) {
+  .top-endorsement-bar {
+    font-size: 13px;
+    padding: 4px 16px;
+  }
+
+  .social-icon-link {
+    width: 26px;
+    height: 26px;
+  }
+
+  .top-bar-phone {
+    font-size: 16px;
+  }
 }
 
 /* Header & Mobile Nav Drawer */
@@ -352,7 +368,7 @@ img {
 }
 
 .brand-logo-img {
-  height: 44px;
+  height: 38px;
   width: auto;
 }
 
@@ -363,10 +379,32 @@ img {
 }
 
 .nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+  display: none; /* Hidden by default on mobile */
   list-style: none;
+}
+
+@media (min-width: 900px) {
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 899px) {
+  .nav-menu.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 16px 24px;
+    border-top: 2px solid var(--color-secondary);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+  }
 }
 
 .nav-link {
@@ -376,8 +414,47 @@ img {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 6px 0;
+  padding: 8px 0;
   display: block;
+}
+
+.nav-link:hover {
+  color: var(--color-accent-pink);
+  text-decoration: none;
+}
+
+.mobile-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--border-radius);
+  color: var(--color-secondary);
+  font-size: 20px;
+  padding: 4px 10px;
+  cursor: pointer;
+  min-height: 38px;
+  min-width: 38px;
+}
+
+@media (min-width: 900px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+/* High-Energy Fun Hero Section - Dynamic Full Viewport Fit */
+.hero-fun-section {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #FFFDF0 0%, #FFEFA6 100%);
+  padding: 24px 0 36px;
+  overflow: hidden;
+  border-bottom: 3px solid var(--color-secondary);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 /* Ultra-Smooth, Slow Ambient Horizontal Marquee Scroll Track */
@@ -409,19 +486,6 @@ img {
   }
 }
 
-/* High-Energy Fun Hero Section - Dynamic Full Viewport Fit */
-.hero-fun-section {
-  position: relative;
-  width: 100%;
-  background: linear-gradient(135deg, #FFFDF0 0%, #FFEFA6 100%);
-  padding: 32px 0 44px;
-  overflow: hidden;
-  border-bottom: 3px solid var(--color-secondary);
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-}
-
 @media (min-width: 900px) {
   .hero-fun-section {
     min-height: calc(100vh - 90px); /* Fills screen height comfortably down to the fold line */
@@ -432,7 +496,7 @@ img {
 .hero-fun-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 28px;
+  gap: 24px;
   align-items: center;
   position: relative;
   z-index: 10;
@@ -453,23 +517,31 @@ img {
   background-color: var(--color-accent-pink);
   color: #FFFFFF;
   font-family: var(--font-heading);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 18px;
-  margin-bottom: 12px;
+  padding: 4px 10px;
+  border-radius: 16px;
+  margin-bottom: 10px;
   box-shadow: 2px 2px 0px var(--color-secondary);
   border: 2px solid var(--color-secondary);
 }
 
+@media (min-width: 600px) {
+  .hero-fun-badge {
+    font-size: 14px;
+    padding: 5px 14px;
+    margin-bottom: 12px;
+  }
+}
+
 .hero-fun-title {
   font-family: 'Outfit', 'Abel', sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 900;
   color: var(--color-secondary);
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   text-transform: uppercase;
   position: relative;
   letter-spacing: -0.5px;
@@ -483,9 +555,15 @@ img {
      0px  2px 6px rgba(3, 17, 59, 0.2);
 }
 
+@media (min-width: 480px) {
+  .hero-fun-title {
+    font-size: 28px;
+  }
+}
+
 @media (min-width: 600px) {
   .hero-fun-title {
-    font-size: 38px;
+    font-size: 36px;
   }
 }
 
