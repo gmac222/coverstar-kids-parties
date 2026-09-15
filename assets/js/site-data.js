@@ -15,11 +15,11 @@ const COVERSTAR_DATA = {
     phoneTel: "08006897827",
     email: "info@coverstarexperiences.co.uk",
     venueName: "Prohibition Recording Studios",
-    addressLine1: "24 Arrad Street",
+    addressLine1: "24a Arrad Street",
     addressLine2: "Georgian Quarter, Liverpool City Centre",
     city: "Liverpool",
     county: "Merseyside",
-    postcode: "L1 3BP",
+    postcode: "L7 7BP",
     establishedYear: 2013,
     tripAdvisorAwards: [2014, 2015, 2016, 2018, 2019, 2021, 2022, 2023, 2024, 2025],
     tripAdvisorCount: "422+",
@@ -110,24 +110,24 @@ const COVERSTAR_DATA = {
   faqs: [
     {
       question: "Do the children need to be confident or good singers?",
-      answer: "Not at all! Our recording studio parties are all about having fun and celebrating together. Children record in group takes as well as optional solo takes. Our professional sound engineer guides them through rehearsals and uses digital mixing techniques to make everyone sound great."
+      answer: "Not at all! Our recording studio parties are all about having fun and celebrating together. Children record in group takes as well as optional solo takes for the birthday child. Our sound engineer guides them through rehearsals and uses digital editing & mixing techniques to give the best result possible."
     },
     {
       question: "What age range are the parties suitable for?",
-      answer: "Our popstar recording experiences are ideal for children aged 7 through to 16. We tailor the studio hosting, song rehearsals, and party games to match the age group of your child and their friends."
+      answer: "Our popstar recording experiences are ideal for children aged 7 through to 16. We tailor the studio hosting and party experience to each and every group we host for the best experience possible. We are able to host parties for younger children, however, this is the parents choice as to whether they feel their child will be able to keep up with the song & read the words on the screen in time etc. For any queries, please contact our friendly team via our telephone number or contact form."
     },
     {
       question: "Do parents need to remain at the studio during the party?",
-      answer: "Health and safety is our top priority. We require at least one parent or responsible guardian to remain at Prohibition Recording Studios for the duration of the party. Parents are welcome to relax on our studio lounge sofas and watch the recording session!"
+      answer: "Health and safety is our top priority. We require at least one parent or responsible guardian to remain at our venue for the duration of the party. Parents are welcome to relax on our studio lounge sofas and purchase drinks from our bar throughout the experience."
     },
     {
       question: "Can we bring our own food, drinks, and birthday cake?",
-      answer: "Yes! Kitchen and lounge facilities are available. Parents often bring a birthday cake, snacks, or order hot food (such as Domino's pizza) to enjoy during the lounge break while the CDs are being printed."
+      answer: "Yes! Children (and parents) can enjoy food and drinks in our party room. Parents often bring a birthday cake, drinks, snacks, or order hot food (such as Domino's pizza) to enjoy throughout the party while the CDs are being printed. If you plan to order food in, just mention this to our team when booking and we can advise the best time for this to keep the structure of the experience flowing."
     },
     {
       question: "Where is the venue located and is there parking nearby?",
-      answer: "Our venue is located inside Prohibition Recording Studios at 24 Arrad Street in Liverpool City Centre (Georgian Quarter, L1 3BP). On-street parking and nearby pay-and-display car parks are available within short walking distance."
-    },
+      answer: "Our venue is located inside Prohibition Recording Studios at 24a Arrad Street in Liverpool City Centre (Georgian Quarter, L7 7BP). On-street parking and nearby pay-and-display car parks are available within short walking distance. For parking we recommend the on street parking on Hope Street or The Metropolitan Cathedral car park. Both are just a 2 minute walk from us."
+    },,
     {
       question: "How do we check date availability and book?",
       answer: "Fill out our online availability form or call our friendly team on 0800 689 7827. Once your date and time slot are provisionally confirmed, a £50 deposit secures your party slot."

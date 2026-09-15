@@ -94,6 +94,7 @@ function initEnquiryForm() {
 
     const parentName = document.getElementById('parent_name')?.value.trim();
     const email = document.getElementById('parent_email')?.value.trim();
+    const confirmEmail = document.getElementById('confirm_email')?.value.trim();
     const phone = document.getElementById('parent_phone')?.value.trim();
     const prefDate = document.getElementById('pref_date')?.value;
     const consent = document.getElementById('privacy_consent')?.checked;
@@ -105,6 +106,17 @@ function initEnquiryForm() {
         formStatus.style.color = '#991B1B';
         formStatus.style.border = '1px solid #FCA5A5';
         formStatus.innerHTML = '<strong>Please complete all required fields</strong> including parent name, email, phone, preferred date, and privacy consent.';
+      }
+      return;
+    }
+
+    if (confirmEmail !== undefined && email.toLowerCase() !== confirmEmail.toLowerCase()) {
+      if (formStatus) {
+        formStatus.style.display = 'block';
+        formStatus.style.backgroundColor = '#FEE2E2';
+        formStatus.style.color = '#991B1B';
+        formStatus.style.border = '1px solid #FCA5A5';
+        formStatus.innerHTML = '<strong>Email addresses do not match.</strong> Please verify both email address fields.';
       }
       return;
     }
