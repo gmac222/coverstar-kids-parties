@@ -1,2 +1,6 @@
 Matts files/
 *.zip
+.env*
+!.env.example
+node_modules/
+

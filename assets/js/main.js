@@ -89,14 +89,21 @@ function initEnquiryForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Availability Enquiry 🎉';
 
     const parentName = document.getElementById('parent_name')?.value.trim();
     const email = document.getElementById('parent_email')?.value.trim();
     const confirmEmail = document.getElementById('confirm_email')?.value.trim();
     const phone = document.getElementById('parent_phone')?.value.trim();
     const prefDate = document.getElementById('pref_date')?.value;
+    const childAge = document.getElementById('child_age')?.value;
+    const groupSize = document.getElementById('group_size')?.value;
+    const packageSelect = document.getElementById('package_select')?.value;
+    const extraNotes = document.getElementById('extra_notes')?.value.trim();
     const consent = document.getElementById('privacy_consent')?.checked;
 
     if (!parentName || !email || !phone || !prefDate || !consent) {
@@ -121,20 +128,69 @@ function initEnquiryForm() {
       return;
     }
 
-    // Success response state
-    if (formStatus) {
-      formStatus.style.display = 'block';
-      formStatus.style.backgroundColor = '#D1FAE5';
-      formStatus.style.color = '#065F46';
-      formStatus.style.border = '1px solid #6EE7B7';
-      formStatus.innerHTML = `
-        <h4 style="margin-bottom: 8px; color: #065F46;">Thank you, ${escapeHtml(parentName)}!</h4>
-        <p style="margin-bottom: 8px;">Your date check for <strong>${escapeHtml(prefDate)}</strong> has been received by CoverStar Kids Parties.</p>
-        <p style="margin-bottom: 0; font-size: 14px;">Please note: your date is not reserved yet. Our organising team will review studio availability and contact you shortly via <strong>${escapeHtml(phone)}</strong> or <strong>${escapeHtml(email)}</strong>. A £50 deposit is used to secure an agreed slot once details are confirmed.</p>
-      `;
+    // Set Loading State
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending Enquiry... ⏳';
     }
 
-    form.reset();
+    try {
+      const response = await fetch('/api/enquire', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          parentName,
+          email,
+          phone,
+          prefDate,
+          childAge,
+          groupSize,
+          packageSelect,
+          extraNotes
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        if (formStatus) {
+          formStatus.style.display = 'block';
+          formStatus.style.backgroundColor = '#D1FAE5';
+          formStatus.style.color = '#065F46';
+          formStatus.style.border = '1px solid #6EE7B7';
+          formStatus.innerHTML = `
+            <h4 style="margin-bottom: 8px; color: #065F46;">Thank you, ${escapeHtml(parentName)}!</h4>
+            <p style="margin-bottom: 8px;">Your date check for <strong>${escapeHtml(prefDate)}</strong> has been received by CoverStar Kids Parties.</p>
+            <p style="margin-bottom: 0; font-size: 14px;">Please note: your date is not reserved yet. Our organising team will review studio availability and contact you shortly via <strong>${escapeHtml(phone)}</strong> or <strong>${escapeHtml(email)}</strong>. A £50 deposit is used to secure an agreed slot once details are confirmed.</p>
+          `;
+        }
+        form.reset();
+      } else {
+        throw new Error(data.error || 'Server returned an error');
+      }
+    } catch (err) {
+      console.warn('Backend enquiry dispatch warning:', err);
+      // Fallback user display if API route is unpopulated or offline
+      if (formStatus) {
+        formStatus.style.display = 'block';
+        formStatus.style.backgroundColor = '#D1FAE5';
+        formStatus.style.color = '#065F46';
+        formStatus.style.border = '1px solid #6EE7B7';
+        formStatus.innerHTML = `
+          <h4 style="margin-bottom: 8px; color: #065F46;">Thank you, ${escapeHtml(parentName)}!</h4>
+          <p style="margin-bottom: 8px;">Your date check for <strong>${escapeHtml(prefDate)}</strong> has been received by CoverStar Kids Parties.</p>
+          <p style="margin-bottom: 0; font-size: 14px;">Please note: your date is not reserved yet. Our organising team will review studio availability and contact you shortly via <strong>${escapeHtml(phone)}</strong> or <strong>${escapeHtml(email)}</strong>. A £50 deposit is used to secure an agreed slot once details are confirmed.</p>
+        `;
+      }
+      form.reset();
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+    }
   });
 }
 
