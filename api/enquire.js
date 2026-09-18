@@ -120,7 +120,11 @@ export default async function handler(req, res) {
     // Call Resend API to dispatch email
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'CoverStar Kids Parties <onboarding@resend.dev>';
     
-    const recipients = ['graham.m.222@gmail.com', 'bookings@coverstarexperiences.co.uk'];
+    // Resend test domain (onboarding@resend.dev) only permits sending to the account owner (graham.m.222@gmail.com).
+    // Once a custom domain is verified in Resend and RESEND_FROM_EMAIL is set, emails dispatch to both recipients.
+    const recipients = process.env.RESEND_FROM_EMAIL
+      ? ['graham.m.222@gmail.com', 'bookings@coverstarexperiences.co.uk']
+      : ['graham.m.222@gmail.com'];
 
 
     const resendResponse = await fetch('https://api.resend.com/emails', {
