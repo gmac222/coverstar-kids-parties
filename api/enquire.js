@@ -1,7 +1,7 @@
 /**
  * CoverStar Kids Parties - Serverless Email Handler (Resend API)
  * Endpoint: /api/enquire
- * Dispatches availability enquiries to graham.m.222@gmail.com & bookings@coverstarexperiences.co.uk
+ * Dispatches availability enquiries to graham.m.222@gmail.com & bookings@coverstarkidsparties.co.uk
  */
 
 export default async function handler(req, res) {
@@ -117,14 +117,9 @@ export default async function handler(req, res) {
       });
     }
 
-    // Call Resend API to dispatch email
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'CoverStar Kids Parties <onboarding@resend.dev>';
-    
-    // Resend test domain (onboarding@resend.dev) only permits sending to the account owner (graham.m.222@gmail.com).
-    // Once a custom domain is verified in Resend and RESEND_FROM_EMAIL is set, emails dispatch to both recipients.
-    const recipients = process.env.RESEND_FROM_EMAIL
-      ? ['graham.m.222@gmail.com', 'bookings@coverstarexperiences.co.uk']
-      : ['graham.m.222@gmail.com'];
+    // Call Resend API to dispatch email (using verified domain coverstarkidsparties.co.uk)
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'CoverStar Kids Parties <bookings@coverstarkidsparties.co.uk>';
+    const recipients = ['graham.m.222@gmail.com', 'bookings@coverstarkidsparties.co.uk'];
 
 
     const resendResponse = await fetch('https://api.resend.com/emails', {

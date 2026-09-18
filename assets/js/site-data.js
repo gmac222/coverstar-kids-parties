@@ -13,7 +13,7 @@ const COVERSTAR_DATA = {
     domain: "coverstarkidsparties.co.uk",
     phoneDisplay: "0800 689 7827",
     phoneTel: "08006897827",
-    email: "bookings@coverstarexperiences.co.uk",
+    email: "bookings@coverstarkidsparties.co.uk",
     venueName: "Prohibition Recording Studios",
     addressLine1: "24a Arrad Street",
     addressLine2: "Georgian Quarter, Liverpool City Centre",
