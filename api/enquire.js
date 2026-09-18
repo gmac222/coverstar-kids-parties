@@ -117,9 +117,9 @@ export default async function handler(req, res) {
       });
     }
 
-    // Call Resend API to dispatch email (using verified domain coverstarkidsparties.co.uk)
+    // Call Resend API to dispatch email (sent from verified domain coverstarkidsparties.co.uk)
     const fromEmail = process.env.RESEND_FROM_EMAIL || 'CoverStar Kids Parties <bookings@coverstarkidsparties.co.uk>';
-    const recipients = ['graham.m.222@gmail.com', 'bookings@coverstarkidsparties.co.uk'];
+    const recipients = ['graham.m.222@gmail.com', 'bookings@coverstarexperiences.co.uk'];
 
 
     const resendResponse = await fetch('https://api.resend.com/emails', {
