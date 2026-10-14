@@ -155,6 +155,10 @@ function initEnquiryForm() {
       const data = await response.json();
 
       if (response.ok && data.success) {
+        // GA4 lead event (imported into Google Ads as the campaign conversion)
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', { form_id: 'availability-form', package: packageSelect || '' });
+        }
         if (formStatus) {
           formStatus.style.display = 'block';
           formStatus.style.backgroundColor = '#D1FAE5';
