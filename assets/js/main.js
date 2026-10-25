@@ -9,7 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initEnquiryForm();
   renderDynamicPackages();
   initVideoOverlay();
+  initPhoneClickTracking();
 });
+
+/* GA4 phone click event (imported into Google Ads as a call conversion) */
+function initPhoneClickTracking() {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="tel:"]');
+    if (link && typeof gtag === 'function') {
+      gtag('event', 'click_to_call', { link_url: link.getAttribute('href'), page_path: location.pathname });
+    }
+  });
+}
 
 /* Video Play Button Overlay Handler */
 function initVideoOverlay() {
@@ -154,7 +165,7 @@ function initEnquiryForm() {
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
+      if (response.ok && data.success && !data.warning) {
         // GA4 lead event (imported into Google Ads as the campaign conversion)
         if (typeof gtag === 'function') {
           gtag('event', 'generate_lead', { form_id: 'availability-form', package: packageSelect || '' });
@@ -176,19 +187,16 @@ function initEnquiryForm() {
       }
     } catch (err) {
       console.warn('Backend enquiry dispatch warning:', err);
-      // Fallback user display if API route is unpopulated or offline
+      // Keep the visitor's details in the form and point them to the phone line
       if (formStatus) {
         formStatus.style.display = 'block';
-        formStatus.style.backgroundColor = '#D1FAE5';
-        formStatus.style.color = '#065F46';
-        formStatus.style.border = '1px solid #6EE7B7';
+        formStatus.style.backgroundColor = '#FEE2E2';
+        formStatus.style.color = '#991B1B';
+        formStatus.style.border = '1px solid #FCA5A5';
         formStatus.innerHTML = `
-          <h4 style="margin-bottom: 8px; color: #065F46;">Thank you, ${escapeHtml(parentName)}!</h4>
-          <p style="margin-bottom: 8px;">Your date check for <strong>${escapeHtml(prefDate)}</strong> has been received by CoverStar Kids Parties.</p>
-          <p style="margin-bottom: 0; font-size: 14px;">Please note: your date is not reserved yet. Our organising team will review studio availability and contact you shortly via <strong>${escapeHtml(phone)}</strong> or <strong>${escapeHtml(email)}</strong>. A £50 deposit is used to secure an agreed slot once details are confirmed.</p>
+          <strong>Sorry, your enquiry didn't send.</strong> Please try again, or call us free on <a href="tel:08006897827" style="color: #991B1B; font-weight: 700;">0800 689 7827</a> and we'll check your date straight away.
         `;
       }
-      form.reset();
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
