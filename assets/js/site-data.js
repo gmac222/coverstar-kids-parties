@@ -9,7 +9,6 @@ const COVERSTAR_DATA = {
     brandName: "CoverStar Kids Parties",
     legalEntity: "CoverStar Experiences",
     parentBrand: "CoverStar Experiences",
-    parentUrl: "https://www.coverstarexperiences.co.uk/",
     domain: "coverstarkidsparties.co.uk",
     phoneDisplay: "0800 689 7827",
     phoneTel: "08006897827",
